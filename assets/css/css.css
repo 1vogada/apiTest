@@ -1,0 +1,620 @@
+@layer generalStyling {
+    main {
+        display: grid;
+        grid-template-rows: 1fr auto 1fr;
+
+    }
+
+    body {
+        margin: 0;
+    }
+
+    @font-face {
+        font-family: CascadiaCode;
+        src: url(../fonts/woff2/CascadiaCode.woff2);
+    }
+
+    * {
+        font-family: CascadiaCode !important;
+        --matchBorderColor: white;
+    }
+}
+
+@layer topStyling {
+    .topSide {
+        display: grid;
+        grid-template-columns: 1fr 6fr 2fr;
+        min-height: 10vh;
+        /* max-height: 10vh; */
+        color: white;
+        justify-items: center;
+        align-items: center;
+        background-color: #0D0538;
+    }
+
+    .logo {
+        border-radius: 3px;
+        border: white solid 5px;
+        height: 8vh;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .name {
+        font-size: 2em;
+    }
+
+    .searchHousing {
+
+        justify-items: center;
+        align-items: center;
+    }
+
+
+
+}
+
+
+
+@layer botStyling {
+    .botSide {
+        color: white;
+        min-height: 10vh;
+        background-color: #0A0022;
+        text-align: center;
+        display: grid;
+        
+    }
+    .email {
+        font-size:  1.5rem;
+    }
+
+}
+
+
+
+@layer resultsStyling {
+    .mainContent {
+        min-height: 80vh;
+
+        background-color: #000A18;
+        color: #6F78CF;
+        display: grid;
+        grid-template-columns: 1.2fr 6fr 2fr;
+
+    }
+
+
+    @layer matchStyling {
+        .mainMatchContainer {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            height: auto;
+            width: 1300px;
+            border: 1px solid var(--matchBorderColor);
+            margin-top: 1em;
+            margin-bottom: 3em;
+            background-color: #12142D;
+        }
+
+        @layer playerSideOfStatsStyling {
+
+
+            .personalStatsSide {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                color: white;
+                background-color: #18365e;
+            }
+
+            .playerStatsTopHalf {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .playerStatsTopHalfLeft {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsTopHalfLeftUp {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsTopHalfLeftDown {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr;
+                display: grid;
+                grid-template-rows: 1fr;
+                justify-items: center;
+                align-items: center;
+            }
+
+            .playerStatsTopHalfRight {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsTopHalfRightUp {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsTopHalfRightDown {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsBottomHalf {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .playerStatsBottomHalfLeft {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsBottomHalfLeftUp {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+
+                justify-items: center;
+                align-items: center;
+            }
+
+            .playerStatsBottomHalfLeftDown {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr;
+            }
+
+            .playerStatsBottomHalfRight {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsBottomHalfRightUp {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .playerStatsBottomHalfRightDown {
+                border: 1px solid var(--matchBorderColor);
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            @layer playerDataDisplay {
+                .championNamePlayer {
+                    border: 1px solid var(--matchBorderColor);
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 1.5em;
+                }
+
+                .playerChampionIcon {
+
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .playerCS {
+                    border: 1px solid var(--matchBorderColor);
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 1.5em;
+                }
+
+                .playerDamageTaken {
+                    border: 1px solid var(--matchBorderColor);
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 1.5em;
+                }
+
+                .playerDamageDealt {
+                    border: 1px solid var(--matchBorderColor);
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 1.5em;
+                }
+
+                .playerWinLose {
+                    border: 1px solid var(--matchBorderColor);
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 1.5em;
+
+                }
+
+                .playerKDAContainer {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                }
+
+                .playerKDA {
+                    border: 1px solid var(--matchBorderColor);
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 1.15em;
+
+                }
+
+                .playerRole {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .playerRoleText {
+
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 1.2em;
+                }
+
+                .playerRoleIcon {
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    height: auto;
+                    width: 50px;
+                    object-fit: contain;
+                }
+
+                .playerBuild {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .playerBuildItem {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    height: 46px;
+                    width: auto;
+                }
+
+                .playerQueueType {
+                    border: 1px solid var(--matchBorderColor);
+                    font-size: 1.1em;
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+
+                .playerKP {
+                    border: 1px solid var(--matchBorderColor);
+                    font-size: 1.4em;
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .baitPings {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .baitPingsIcon {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .baitPingsText {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    font-size: 2em;
+                }
+
+                .playerSumSpells {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                    justify-items: center;
+                    align-items: center;
+
+                }
+
+                .playerSumSpell1 {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    height: 50px;
+                    width: auto;
+                }
+
+                .playerSumSpell2 {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    height: 50px;
+                    width: auto;
+                }
+
+                .playerRunes {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .playerRune1 {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    height: 60px;
+                    width: auto;
+                }
+
+                .playerRune2 {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    height: 45px;
+                    width: auto;
+
+                }
+            }
+
+
+            @layer otherDataDisplay {
+                .oBaitPingsIcon {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    width: 35px;
+                    height: 35px;
+                }
+
+                .player {
+                    border: 1px solid var(--matchBorderColor);
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 2fr;
+                    text-align: center;
+                    justify-items: center;
+                    align-items: center;
+                    color: white;
+                    white-space: nowrap;
+                }
+
+                .oPlayerIcon {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                .playerStatsLeft {
+
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .playerStatsMid {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr 1fr 1fr;
+                    justify-items: center;
+                    align-items: center;
+
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                    font-size: 0.9em;
+                }
+
+                .playerStatsRight {
+                    display: grid;
+                    grid-template-rows: 1fr 2fr;
+                    justify-items: center;
+                    align-items: center;
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .oPlayerCSVSBP {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 2fr;
+                    justify-items: center;
+                    align-items: center;
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .oBaitPings {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .oSumsRunesItems {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .oSumsRunes {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .oSums {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .oRunes {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                    border: 1px solid var(--matchBorderColor);
+                    height: 100%;
+                    width: 100%;
+                    justify-items: center;
+                    align-items: center;
+                }
+
+                .oItems {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    justify-items: center;
+                    align-items: center;
+                    gap: 0px;
+                }
+
+                .oSumsIcon {
+                    width: 35px;
+                    height: auto;
+                }
+
+                .oRuneIcon1 {
+                    width: 35px;
+                    height: auto;
+                }
+
+                .oRuneIcon2 {
+                    width: 23px;
+                    height: auto;
+                }
+
+                .oPlayerBuildItem {
+                    width: 35px;
+                    height: auto;
+                }
+
+            }
+
+        }
+
+        .winLoseField {
+            border: 1px solid var(--matchBorderColor);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .otherStatsSide {
+            display: grid;
+            grid-template-rows: 1fr 8fr;
+            border: 1px solid var(--matchBorderColor);
+
+        }
+
+        .teamPlayers {
+            border: 1px solid white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+
+
+        .blueTeamPlayers {
+            border: 1px solid var(--matchBorderColor);
+            display: grid;
+            grid-template-rows: 1f 1f 1f 1f 1f;
+        }
+
+        .leftSide {
+            border: 1px solid var(--matchBorderColor);
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+        }
+
+        .rightSide {
+            border: 1px solid var(--matchBorderColor);
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+        }
+
+        .redTeamPlayers {
+            border: 1px solid var(--matchBorderColor);
+            display: grid;
+            grid-template-rows: 1f 1f 1f 1f 1f;
+        }
+
+
+
+
+
+    }
+}
