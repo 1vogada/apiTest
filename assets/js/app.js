@@ -43,7 +43,7 @@ async function logJSONData(event) {
     try {
     
     // const urlAccountData = `https://eun1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${document.getElementById('searchBar').value}`;
-    const urlAccountData = `https://eun1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${document.getElementById('searchBar').value}?api_key=${apiKey}`;
+    const urlAccountData = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${document.getElementById('searchBar').value}?api_key=${apiKey}`;
 
 
     const accDataResponse = await fetch(urlAccountData);
