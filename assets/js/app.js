@@ -3,6 +3,8 @@ const inputField = document.getElementById('searchBar');
 const apiField = document.getElementById('apiKey');
 const select = document.getElementById("matchNSelector");
 
+let ddVersion = null;
+
 buttonClick.addEventListener('click', logJSONData);
 
 
@@ -43,10 +45,16 @@ async function logJSONData(event) {
     try {
     
     // const urlAccountData = `https://eun1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${document.getElementById('searchBar').value}`;
-    const urlAccountData = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${document.getElementById('searchBar').value}?api_key=${apiKey}`;
+    // Riot removed lookups by summoner name in 2024: players are now found by Riot ID (Name#TAG).
+    const [gameName, tagLine = 'EUW'] = document.getElementById('searchBar').value.trim().split('#');
+    const urlAccountData = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(gameName)}/${encodeURIComponent(tagLine)}?api_key=${apiKey}`;
 
+    if (!ddVersion) {
+        try { ddVersion = (await (await fetch('https://ddragon.leagueoflegends.com/api/versions.json')).json())[0]; } catch (e) { ddVersion = '13.10.1'; }
+    }
 
     const accDataResponse = await fetch(urlAccountData);
+    if (!accDataResponse.ok) throw new Error(`Riot ID lookup failed (${accDataResponse.status})`);
     const accData = await accDataResponse.json();
     console.log(accData);
     const puuid = accData.puuid;
@@ -160,7 +168,7 @@ async function logJSONData(event) {
 
 
 
-            if (matchData.info.participants[j].summonerName.toLowerCase() == document.getElementById('searchBar').value.toLowerCase()) {
+            if (matchData.info.participants[j].puuid === puuid) {
 
                 //left side table creation
                 function createDiv(divName, appendDiv) {
@@ -372,7 +380,7 @@ async function logJSONData(event) {
                     playerBuildItem.className = "playerBuildItem";
 
                     if (matchData.info.participants[j][`item${k}`] != 0) {
-                        playerBuildItem.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${matchData.info.participants[j][`item${k}`]}.png`
+                        playerBuildItem.src = `https://ddragon.leagueoflegends.com/cdn/${ddVersion}/img/item/${matchData.info.participants[j][`item${k}`]}.png`
                         playerBuild.appendChild(playerBuildItem);
 
                     }
@@ -381,7 +389,7 @@ async function logJSONData(event) {
                         const playerBuildItem = document.createElement("img");
                         playerBuildItem.className = "playerBuildItem";
                         if (matchData.info.participants[j][`item${k}`] != 0) {
-                            playerBuildItem.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${matchData.info.participants[j][`item${k}`]}.png`
+                            playerBuildItem.src = `https://ddragon.leagueoflegends.com/cdn/${ddVersion}/img/item/${matchData.info.participants[j][`item${k}`]}.png`
                             playerBuild.appendChild(playerBuildItem);
 
                         }
@@ -436,7 +444,7 @@ async function logJSONData(event) {
             playerStatsLeft.appendChild(oChampionName);
             const oPlayerName = document.createElement("div");
             oPlayerName.className = "oPlayerName";
-            oPlayerName.innerHTML = `${matchData.info.participants[j].summonerName}`;
+            oPlayerName.innerHTML = `${matchData.info.participants[j].riotIdGameName || matchData.info.participants[j].summonerName}`;
             playerStatsMid.appendChild(oPlayerName);
             const oPlayerKDA = document.createElement("div");
             oPlayerKDA.className = "oPlayerKDA";
@@ -521,7 +529,7 @@ async function logJSONData(event) {
                 playerBuildItem.className = "oPlayerBuildItem";
 
                 if (matchData.info.participants[j][`item${k}`] != 0) {
-                    playerBuildItem.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${matchData.info.participants[j][`item${k}`]}.png`
+                    playerBuildItem.src = `https://ddragon.leagueoflegends.com/cdn/${ddVersion}/img/item/${matchData.info.participants[j][`item${k}`]}.png`
                     oItems.appendChild(playerBuildItem);
 
                 }
@@ -701,7 +709,7 @@ function getSummonerSpellIcon(summonerIconId) {
     // playerSumSpell1.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/spell/Summoner${sum1}.png`;
     // playerSumSpell2.src = `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/spell/Summoner${sum2}.png`;
 
-    return `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/spell/Summoner${summonerIconId}.png`;
+    return `https://ddragon.leagueoflegends.com/cdn/${ddVersion}/img/spell/Summoner${summonerIconId}.png`;
 }
 
 
